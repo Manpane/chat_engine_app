@@ -6,21 +6,21 @@ const ChatFeed = (props) =>{
     const {chats, activeChat , userName , messages } = props;
     const chat = chats && chats[activeChat];
     
-    const renderReadReceipts = (message , isMyMessage) => {
-        return chat.people.map( ( person , index ) => person.last_read === message.id && (
-                <div
-                    key = {`read_${index}`}
-                    className = "read-receipt"
-                    style={{
-                        float : isMyMessage ? 'right' : 'left' ,
-                        backgroundImage : `url(${person?.person?.avatar})`,
-                        fontStyle : 'normal',
-                        fontSize : '8px'
-                    }}
-                >{ person.person.avatar ? '' : `${person.person.username.trim().split(" ")[0]} `}</div>
-            )
-        )
-    }
+    // const renderReadReceipts = (message , isMyMessage) => {
+    //     return chat.people.map( ( person , index ) => person.last_read === message.id && (
+    //             <div
+    //                 key = {`read_${index}`}
+    //                 className = "read-receipt"
+    //                 style={{
+    //                     float : isMyMessage ? 'right' : 'left' ,
+    //                     backgroundImage : `url(${person?.person?.avatar})`,
+    //                     fontStyle : 'normal',
+    //                     fontSize : '8px'
+    //                 }}
+    //             >{ person.person.avatar ? '' : `${person.person.username.trim().split(" ")[0]} `}</div>
+    //         )
+    //     )
+    // }
     const renderMessages = () =>{
         const keys = Object.keys(messages);
         return keys.map((key,index)=>{
