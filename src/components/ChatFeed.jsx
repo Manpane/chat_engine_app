@@ -49,7 +49,7 @@ const ChatFeed = (props) =>{
     return(
         <div className = "chat-feed">
             <div className="chat-title-containers">
-                <div className="chat-title" style={ {position : 'relative' , width : '100%' ,  backgroundColor : "#dddddddd" , padding : "10px" , marginBottom : '10px' , textAlign : 'center' } }>{chat ?.title} </div>
+                <div className="chat-title" style={ {position : 'relative' , width : '100%' ,  backgroundColor : "#dddddddd" , padding : "10px" , marginBottom : '10px' , textAlign : 'center' } }>{chat?.title} </div>
             </div>
             {renderMessages()}
             <div style ={{height:'100px'}}/>
