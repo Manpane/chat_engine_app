@@ -1,7 +1,10 @@
 import MessageForm from './MessageForm';
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
-
+const scrollToBottom = (event) => {
+    const view = document.getElementById("messages-list");
+    view.scroll(0,view.scrollHeight);
+}
 const ChatFeed = (props) =>{
     const {chats, activeChat , userName , messages } = props;
     const chat = chats && chats[activeChat];
@@ -47,7 +50,7 @@ const ChatFeed = (props) =>{
     }
     if (!chat) return "Loading...";
     return(
-        <div className = "chat-feed">
+        <div className = "chat-feed" id = "messages-list" onLoad = {scrollToBottom}>
             <div className="chat-title-containers">
                 <div className="chat-title" style={ {position : 'relative' , width : '100%' ,  backgroundColor : "#dddddddd" , padding : "10px" , marginBottom : '10px' , textAlign : 'center' } }>{chat?.title} </div>
             </div>

@@ -3,6 +3,10 @@ import { sendMessage , isTyping } from "react-chat-engine";
 import { SendOutlined , PictureOutlined } from "@ant-design/icons";
 
 const MessageForm = (props)=>{
+    const scrollToBottom = (event) => {
+        const view = document.getElementById("messages-list");
+        view.scroll(0,view.scrollHeight);
+    }
     const [value , setValue ] = useState('');
     const {chatId , creds} = props;
     const handleSubmit = (event) => {
@@ -12,6 +16,7 @@ const MessageForm = (props)=>{
         text = text.replace("</script>","")
         if (text.length>0) sendMessage(creds,chatId,{text})
         setValue('');
+        scrollToBottom();
     }
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -19,6 +24,8 @@ const MessageForm = (props)=>{
     }  
     const handleUpload = (event) => {
         sendMessage(creds,chatId,{files : event.target.files,text:""})
+        
+        scrollToBottom();
     } 
     return (
         <form className="message-form" onSubmit={handleSubmit}>
