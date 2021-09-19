@@ -1,6 +1,11 @@
 import Avatar from "./senderAvatar";
 const TheirMessage = ({lastMessage , message} )=>{
     const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username;
+    const scrollToBottom = () => {
+        const view = document.getElementById("messages-list");
+        view?.scroll(0,view.scrollHeight);
+    }
+    scrollToBottom()
     return (
         <div className="message-row">
             {isFirstMessageByUser && (

@@ -1,5 +1,10 @@
 const MyMessage = ({message})=>{
     console.log("From the MyMessage : ",message);
+    const scrollToBottom = () => {
+        const view = document.getElementById("messages-list");
+        view?.scroll(0,view.scrollHeight);
+    }
+    scrollToBottom();
     if (message?.attachments?.length > 0){
         return(
             <img

@@ -3,7 +3,7 @@ import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 const scrollToBottom = (event) => {
     const view = document.getElementById("messages-list");
-    view.scroll(0,view.scrollHeight);
+    view?.scroll(0,view.scrollHeight);
 }
 const ChatFeed = (props) =>{
     const {chats, activeChat , userName , messages } = props;

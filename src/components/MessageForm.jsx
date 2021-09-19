@@ -3,9 +3,9 @@ import { sendMessage , isTyping } from "react-chat-engine";
 import { SendOutlined , PictureOutlined } from "@ant-design/icons";
 
 const MessageForm = (props)=>{
-    const scrollToBottom = (event) => {
+    const scrollToBottom = () => {
         const view = document.getElementById("messages-list");
-        view.scroll(0,view.scrollHeight);
+        view?.scroll(0,view.scrollHeight);
     }
     const [value , setValue ] = useState('');
     const {chatId , creds} = props;
@@ -21,10 +21,10 @@ const MessageForm = (props)=>{
     const handleChange = (event) => {
         setValue(event.target.value);
         isTyping(props,chatId);
+        scrollToBottom();
     }  
     const handleUpload = (event) => {
         sendMessage(creds,chatId,{files : event.target.files,text:""})
-        
         scrollToBottom();
     } 
     return (
