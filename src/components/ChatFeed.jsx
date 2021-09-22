@@ -48,7 +48,14 @@ const ChatFeed = (props) =>{
             );
         });
     }
-    if (!chat) return "Loading...";
+    if (!chat) {
+        
+        return (
+            <center>
+                <div style = {{alignSelf : 'center' }}>No chat</div> 
+            </center>
+        );
+    }
     return(
         <div className = "chat-feed" id = "messages-list" onLoad = {scrollToBottom}>
             <div className="chat-title-containers">
