@@ -327,5 +327,15 @@
     color: white;
     background-color: #3b2a50;
     transform: scaleX(1) scaleY(1);
-
+  }
+  @media only screen and (max-width: 600px) and (min-width: 100px)  {
+    #logout_btn {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      padding: 1px;
+      font-size: small;
+      max-width: 50px;
+      max-height: 40px;
+    }
   }
