@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
     const [username , setUsername ] = useState('');
@@ -20,7 +21,6 @@ const LoginForm = () => {
             setError('Wrong credentials');
         }
     }
-
     return (
         <div className = "wrapper">
             <div className = "form" >
@@ -33,8 +33,12 @@ const LoginForm = () => {
                         <button type='submit' className="button">
                             <span>Login</span>
                         </button>
-
                     </div>
+                    <Link to = {`/sign_up`}>
+                        <center>
+                            <div style = {{color : '#dddddd' , margin: '5px',cursor:"pointer"}}>Create new account</div>
+                        </center>
+                    </Link>
                 </form>
 
             </div>

@@ -1,11 +1,20 @@
 import { ChatEngine } from 'react-chat-engine';
+import { BrowserRouter as Router , Route  , Switch } from 'react-router-dom'
 import './App.css';
 import ChatFeed from './components/ChatFeed';
 import LoginForm from './components/LoginForm';
+import SignUpForm  from './components/SignUpForm';
 const App = () =>{
 
     if (!localStorage.getItem('username')){
-        return <LoginForm />
+        return (
+            <Router>
+                <Switch>
+                    <Route path ="/" exact component = {LoginForm}/>
+                    <Route path ="/sign_up" exact component = {SignUpForm}/>
+                </Switch>
+            </Router>
+        );
     }
     
     const Username = localStorage.getItem('username');
