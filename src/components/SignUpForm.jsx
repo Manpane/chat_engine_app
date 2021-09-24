@@ -16,6 +16,7 @@ const SignUpForm = () => {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSuccessMsg('');
         console.log('password : ',password);
         console.log('confirm password : ',confirmPassword);
 
@@ -36,13 +37,14 @@ const SignUpForm = () => {
             .then(function (response) {
                 if (response.data.is_authenticated){
                     window.localStorage.clear()
-                    window.localStorage.setItem('username',username);
-                    window.localStorage.setItem('password',password);
                     setSuccessMsg(`Account ${username} successfully created`);
+                    alert("You can Log in now");
                 }
             })
             .catch(function (error) {
             console.log("From the Sign Up Form",error);
+            setError("Problem while creating new User, Try another username");
+            setSuccessMsg('');
             });
         
         }
@@ -53,7 +55,7 @@ const SignUpForm = () => {
                 <div className = "form" >
                     <h1 className = "title" >Create Account</h1>
                     <h3 className = "error" >{error}</h3>
-                    <h3 style = {{color : "#22cc33" , margin:"5px",padding : "2px"}}>{successMsg}</h3>
+                    <h3 style = {{fontWeight : '100',color : "#22cc33" , textAlign : "center" , marginBottom : '10px'}}>{successMsg}</h3>
                     <form onSubmit = {handleSubmit}>
                         <input type="text" value = {username} onChange = {(e)=>setUsername(e.target.value)} className = "input" placeholder = "Username" required></input>
                         <input type="password" value = {password} onChange = {(e)=>setPassword(e.target.value)} className = "input" placeholder = "Password" required></input>
